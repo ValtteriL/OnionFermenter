@@ -1,0 +1,19 @@
+# Default values for onionfermenter.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+replicaCount: 1
+
+image:
+  repository: docker.io/valtteri/onionfermenter
+  pullPolicy: Always
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: "latest"
+
+nameOverride: ""
+fullnameOverride: ""
+
+
+# The onion id to attack
+# The onion address without protocol prefix and .onion suffix
+victimOnionId: ""

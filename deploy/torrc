@@ -1,0 +1,6 @@
+# Open socks proxy on localhost
+SocksPort 9050
+
+# serve onionfermenter as hidden service
+HiddenServiceDir /var/lib/tor/hidden_service/
+HiddenServicePort 80 127.0.0.1:8080

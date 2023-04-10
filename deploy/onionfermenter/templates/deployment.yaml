@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "onionfermenter.fullname" . }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: onionfermenter
+  template:
+    metadata:
+      labels:
+        app: onionfermenter
+    spec:
+      containers:
+        - name: {{ .Chart.Name }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          env:
+            - name: VICTIM_ONION_ID
+              value: {{ .Values.victimOnionId }}
+          volumeMounts:
+            - name: config-volume
+              mountPath: /onionfermenter/BTC-ADDRESSES.txt
+              subPath: BTC-ADDRESSES.txt
+          livenessProbe:
+            exec:
+              command:
+                - /bin/sh
+                - -c
+                - "curl -x socks5h://localhost:9050 http://`cat /var/lib/tor/hidden_service/hostname`"
+            initialDelaySeconds: 30
+            periodSeconds: 300
+            failureThreshold: 5
+            timeoutSeconds: 60
+          readinessProbe:
+            exec:
+              command:
+                - /bin/sh
+                - -c
+                - "curl -x socks5h://localhost:9050 http://`cat /var/lib/tor/hidden_service/hostname`"
+            initialDelaySeconds: 30
+            periodSeconds: 300
+            failureThreshold: 5
+            timeoutSeconds: 60
+      volumes:
+        - name: config-volume
+          configMap:
+            name: btc-addresses
