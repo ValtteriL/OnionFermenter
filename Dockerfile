@@ -15,6 +15,8 @@ RUN rebar3 as prod release
 
 FROM alpine:3.16
 
+LABEL maintainer="valtteri@shufflingbytes.com"
+
 RUN apk add --no-cache \
     bash \
     tor \
