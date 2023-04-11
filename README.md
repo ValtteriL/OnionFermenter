@@ -3,20 +3,15 @@ Onion Fermenter (OF)
 
 A proof of concept for Bitcoin stealing man-in-the-middle (MitM) attacks against TOR hidden services on a large scale. Writeup [here](https://shufflingbytes.com/posts/#/).
 
-# Open Stealing Platform
-
-OF is a proof of concept for Bitcoin stealing man-in-the-middle (MitM) attacks against TOR hidden services on a large scale.
-
 With OF, you can create any number of clones of web hidden services that function just like the original but with bitcoin addresses on pages replaced with your own.
 You can monitor any users lured to use these clone pages, steal their passwords, and snatch the bitcoin they spend on the sites.
 
 With minor changes, OF can be used to steal other virtual currencies as well.
 
-# Implementation
+# Usage
+
 OF is implemented as a containerized application that is configured using environment variables and a file mount.
 You can run it with Docker, but the full power is unleashed with the scalability and redundancy of Kubernetes.
-
-# Usage
 
 ## Preparations
 What you need:
