@@ -119,8 +119,6 @@ export VICTIM_ONION_ID=<victim onion domain without .onion suffix>
 make get-addresses-docker
 ```
 
-Note: The addresses change if the containers are restarted.
-
 ### View and manage your clones
 
 The clones will have the VICTIM_ONION_ID as the prefix of their names. You can use the usual docker commands to manage them. 

