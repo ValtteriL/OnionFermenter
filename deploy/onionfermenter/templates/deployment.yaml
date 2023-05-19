@@ -20,6 +20,8 @@ spec:
             - name: VICTIM_ONION_ID
               value: {{ .Values.victimOnionId }}
           volumeMounts:
+            - mountPath: /var/lib/tor/hidden_service
+              name: hidden-service-volume
             - name: config-volume
               mountPath: /onionfermenter/BTC-ADDRESSES.txt
               subPath: BTC-ADDRESSES.txt
@@ -43,7 +45,17 @@ spec:
             periodSeconds: 300
             failureThreshold: 5
             timeoutSeconds: 60
+      initContainers:
+        - name: init-myservice
+          image: busybox:1.28
+          command: ['sh', '-c', "chown -R 100:nogroup /var/lib/tor/hidden_service && chmod 700 /var/lib/tor/hidden_service"]
+          volumeMounts:
+            - mountPath: /var/lib/tor/hidden_service
+              name: hidden-service-volume
       volumes:
+        - name: hidden-service-volume
+          emptyDir:
+            sizeLimit: 10Mi
         - name: config-volume
           configMap:
             name: btc-addresses

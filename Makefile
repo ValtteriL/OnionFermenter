@@ -43,7 +43,7 @@ deploy:
 get-addresses:
 	@kubectl get pods -n onionfermenter -o custom-columns=name:metadata.name --no-headers\
 		|grep "${RELEASE_NAME}" \
-		|xargs -I{} kubectl -n onionfermenter exec {} -- cat /var/lib/tor/hidden_service/hostname
+		|xargs -I{} kubectl -n onionfermenter -c onionfermenter exec {} -- cat /var/lib/tor/hidden_service/hostname
 
 .PHONY: get-addresses-docker
 get-addresses-docker:
