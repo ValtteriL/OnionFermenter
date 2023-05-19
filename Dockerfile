@@ -40,4 +40,6 @@ COPY --from=build /buildroot/_build/prod/rel/onionfermenter /onionfermenter
 
 USER tor
 
+VOLUME /var/lib/tor/hidden_service
+
 CMD [ "./run.sh" ]
