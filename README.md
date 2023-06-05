@@ -1,7 +1,7 @@
 Onion Fermenter (OF)
 =====
 
-A proof of concept for Bitcoin stealing man-in-the-middle (MitM) attacks against TOR hidden services on a large scale. Writeup [here](https://shufflingbytes.com/posts/#/).
+A proof of concept for Bitcoin stealing man-in-the-middle (MitM) attacks against TOR hidden services on a large scale. Writeup [here](https://shufflingbytes.com/posts/ripping-off-professional-criminals-by-fermenting-onions-phishing-darknet-users-for-bitcoins/).
 
 [![asciicast](https://asciinema.org/a/DQOE7J2ygPQ9tY7rLQSJIlZPs.png)](https://asciinema.org/a/DQOE7J2ygPQ9tY7rLQSJIlZPs)
 
