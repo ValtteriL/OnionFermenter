@@ -1,6 +1,6 @@
 # tor container to run OF with tor 1:1 in single container
 
-FROM erlang:26-alpine as build
+FROM erlang:26.0.2.0-alpine as build
 
 # Set working directory
 RUN mkdir /buildroot
@@ -13,7 +13,7 @@ COPY src/ src/
 # And build the release
 RUN rebar3 as prod release
 
-FROM alpine:3.16
+FROM alpine:3.18
 
 LABEL maintainer="valtteri@shufflingbytes.com"
 
@@ -40,6 +40,7 @@ COPY --from=build /buildroot/_build/prod/rel/onionfermenter /onionfermenter
 
 USER tor
 
+RUN mkdir -p /var/lib/tor/hidden_service && chmod 700 /var/lib/tor/hidden_service
 VOLUME /var/lib/tor/hidden_service
 
 CMD [ "./run.sh" ]
