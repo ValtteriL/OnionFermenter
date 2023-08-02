@@ -39,7 +39,7 @@ This will create NREPLICAS clones of the victim onion service VICTIM_ONION_ID, a
 ```
 export NREPLICAS=<number of replicas to create>
 export VICTIM_ONION_ID=<victim onion domain without .onion suffix>
-export ADDRESS_FILE=<full path to a file with your receiving bitcoin addresses>
+export ADDRESS_FILE=<absolute path to a file with your receiving bitcoin addresses>
 make deploy
 ```
 
@@ -104,7 +104,7 @@ This will create a single clone of the victim onion service VICTIM_ONION_ID, and
 
 ```
 export VICTIM_ONION_ID=<victim onion domain without .onion suffix>
-export ADDRESS_FILE=<full path to a file with your receiving bitcoin addresses>
+export ADDRESS_FILE=<absolute path to a file with your receiving bitcoin addresses>
 make run
 ```
 
