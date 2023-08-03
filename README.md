@@ -95,7 +95,6 @@ make deploy
 ## Running on Docker
 ### Prerequisites
 - make
-- helm
 - docker
 
 ### Deploy
