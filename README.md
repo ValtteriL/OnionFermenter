@@ -104,10 +104,10 @@ This will create a single clone of the victim onion service VICTIM_ONION_ID, and
 ```
 export VICTIM_ONION_ID=<victim onion domain without .onion suffix>
 export ADDRESS_FILE=<absolute path to a file with your receiving bitcoin addresses>
-make run
+make run # sudo -E make run
 ```
 
-Note: It takes a while for the services to be available (~60 seconds).
+Note: It takes a while for the services to be available (~60-300 seconds).
 
 ### Get the onion addresses of your clones
 
@@ -115,7 +115,7 @@ This will get all the onion addresses of the clones you created of the victim on
 
 ```
 export VICTIM_ONION_ID=<victim onion domain without .onion suffix>
-make get-addresses-docker
+make get-addresses-docker # sudo -E make get-addresses-docker
 ```
 
 ### View and manage your clones
@@ -146,12 +146,12 @@ EOF
 export ADDRESS_FILE="`realpath bitcoin-addresses.txt`"
 export VICTIM_ONION_ID=juhanurmihxlp77nkq76byazcldy2hlmovfu2epvl5ankdibsot4csyd
 
-make run
+make run # sudo -E make run
 ```
 
 # Development
 
-Notes for self
+Notes to self
 
 ## Build + push container:
 ```
